@@ -1,0 +1,12 @@
+Source: ros-kinetic-flir-camera-driver
+Section: misc
+Priority: extra
+Maintainer: Michael Hosmar <mhosmar@clearpathrobotics.com>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-flir-camera-driver
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-spinnaker-camera-driver
+Description: A set of drivers for Flir cameras based on the Spinnaker SDK.
