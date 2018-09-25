@@ -159,8 +159,9 @@ public:
   void setDesiredCamera(const uint32_t& id);
 
   void setGain(const float& gain);
-  uint getHeightMax();
-  uint getWidthMax();
+  int getHeightMax();
+  int getWidthMax();
+  Spinnaker::GenApi::CNodePtr readProperty(const Spinnaker::GenICam::gcstring property_name);
 
   uint32_t getSerial()
   {
