@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.0.2)
 
 set_directory_properties(PROPERTIES COMPILE_OPTIONS "-std=c++11;-Wall;-Wextra")
 
@@ -28,12 +28,13 @@ catkin_package(CATKIN_DEPENDS
 # the Point Grey EULA prohibits redistributing the headers or the packages which
 # contains them. We work around this by downloading the archive directly from
 # their website during this step in the build process.
-find_library(Spinnaker_LIBRARIES Spinnaker)
-# if(NOT Spinnaker_LIBRARIES)
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules")
+find_package(Spinnaker QUIET)
+if(NOT Spinnaker_FOUND)
   message(STATUS "libSpinnaker not found in system library path")
   include(cmake/DownloadSpinnaker.cmake)
   download_spinnaker(Spinnaker_LIBRARIES Spinnaker_INCLUDE_DIRS)
-# endif()
+endif()
 
 message(STATUS "libSpinnaker library: ${Spinnaker_LIBRARIES}")
 message(STATUS "libSpinnaker include: ${Spinnaker_INCLUDE_DIRS}")
@@ -77,8 +78,12 @@ add_library(Cm3 src/cm3.cpp)
 target_link_libraries(Cm3 Camera ${catkin_LIBRARIES})
 add_dependencies(Cm3 ${PROJECT_NAME}_gencfg)
 
+add_library(Diagnostics src/diagnostics.cpp)
+target_link_libraries(Diagnostics Camera SpinnakerCameraLib ${catkin_LIBRARIES})
+add_dependencies(Diagnostics ${PROJECT_NAME}_gencfg)
+
 add_library(SpinnakerCameraNodelet src/nodelet.cpp)
-target_link_libraries(SpinnakerCameraNodelet SpinnakerCameraLib Camera Cm3 ${catkin_LIBRARIES})
+target_link_libraries(SpinnakerCameraNodelet Diagnostics SpinnakerCameraLib Camera Cm3 ${catkin_LIBRARIES})
 
 add_executable(spinnaker_camera_node src/node.cpp)
 target_link_libraries(spinnaker_camera_node SpinnakerCameraLib ${catkin_LIBRARIES})
@@ -88,6 +93,8 @@ install(TARGETS
   SpinnakerCameraLib
   SpinnakerCameraNodelet
   Camera
+  Cm3
+  Diagnostics
   spinnaker_camera_node
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
@@ -96,8 +103,16 @@ install(TARGETS
 
 # Redistributing the flycapture .so file is permitted by the SDK EULA:
 # http://www.ptgrey.com/support/kb/data/PGR-FlyCap-SDK-LA.pdf
-install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/usr/lib/ DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-         PATTERN libQt* EXCLUDE)
+if(EXISTS ${CMAKE_CURRENT_BINARY_DIR}/usr/lib)
+  install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/usr/lib/ DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+           PATTERN libQt* EXCLUDE)
+else()
+  get_filename_component(Spinnaker_LIB_DIR ${Spinnaker_LIBRARIES} DIRECTORY)
+  file(READ ${PROJECT_SOURCE_DIR}/cmake/install_files filenames)
+  foreach(filename ${filenames})
+    install(FILES ${Spinnaker_LIB_DIR}/${filename} DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION})
+  endforeach()
+endif()
 
 install(FILES nodelet_plugins.xml DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION} )
 
