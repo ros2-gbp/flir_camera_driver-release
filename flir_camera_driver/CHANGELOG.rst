@@ -2,6 +2,13 @@
 Changelog for package flir_camera_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.2.0 (2022-03-11)
+------------------
+* Bump CMake version to avoid CMP0048 warning.
+* Changes.
+* Include flir_camera_description as dependency in metapackage
+* Contributors: Joey Yang, Tony Baltovski
+
 0.1.3 (2018-09-25)
 ------------------
 

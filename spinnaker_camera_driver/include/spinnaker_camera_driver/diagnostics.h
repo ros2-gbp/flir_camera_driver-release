@@ -45,10 +45,13 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "spinnaker_camera_driver/diagnostics.h"
 #include <diagnostic_msgs/DiagnosticArray.h>
 #include <diagnostic_msgs/DiagnosticStatus.h>
+#include <diagnostic_msgs/AddDiagnostics.h>
 #include <ros/ros.h>
+#include <bondcpp/bond.h>
 
-#include <utility>
+#include <memory>
 #include <string>
+#include <utility>
 #include <vector>
 
 namespace spinnaker_camera_driver
@@ -56,7 +59,9 @@ namespace spinnaker_camera_driver
 class DiagnosticsManager
 {
 public:
-  DiagnosticsManager(const std::string name, const std::string serial, std::shared_ptr<ros::Publisher> const& pub);
+  DiagnosticsManager(const std::string name, const std::string serial,
+                      std::shared_ptr<ros::Publisher> const& pub,
+                      const ros::NodeHandle& nh);
   ~DiagnosticsManager();
 
   /*!
@@ -95,6 +100,8 @@ public:
                      std::pair<float, float> operational = std::make_pair(0.0, 0.0), float lower_bound = 0,
                      float upper_bound = 0);
 
+  void addAnalyzers();
+
 private:
   /*
    * diagnostic_params is aData Structure to represent a parameter and its
@@ -126,6 +133,8 @@ private:
   // constuctor parameters
   std::string camera_name_;
   std::string serial_number_;
+  ros::NodeHandle nh_;
+  std::shared_ptr<bond::Bond> bond_ = nullptr;
   std::shared_ptr<ros::Publisher> diagnostics_pub_;
 
   // vectors to keep track of the items to publish

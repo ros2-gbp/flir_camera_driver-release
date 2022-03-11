@@ -1,8 +1,7 @@
-<?xml version="1.0"?>
-<!--
+/**
 Software License Agreement (BSD)
 
-\file      package.xml
+\file      cm3.h
 \authors   Michael Hosmar <mhosmar@clearpathrobotics.com>
 \copyright Copyright (c) 2018, Clearpath Robotics, Inc., All rights reserved.
 
@@ -22,44 +21,23 @@ DIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
 OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
 ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->
-<package format="2">
-  <name>spinnaker_camera_driver</name>
-  <version>0.2.0</version>
-  <description>Spinnaker camera driver based on Spinnaker.</description>
+*/
+#ifndef SPINNAKER_CAMERA_DRIVER_GH3_H
+#define SPINNAKER_CAMERA_DRIVER_GH3_H
+#include "spinnaker_camera_driver/camera.h"
 
-  <maintainer email="mhosmar@clearpathrobotics.com">Mike Hosmar</maintainer>
+namespace spinnaker_camera_driver
+{
+class Gh3 : public Camera
+{
+public:
+  explicit Gh3(Spinnaker::GenApi::INodeMap* node_map);
+  ~Gh3();
+  void setFrameRate(const float frame_rate);
+  void setNewConfiguration(const SpinnakerConfig& config, const uint32_t& level);
 
-  <license>BSD</license>
-
-  <url type="website">http://ros.org/wiki/spinnaker_camera_driver</url>
-
-  <author>Chad Rockey</author>
-
-  <buildtool_depend>catkin</buildtool_depend>
-
-  <build_depend>curl</build_depend>  <!-- to get ca-certificates for downloading Spinnaker -->
-  <build_depend>dpkg</build_depend>  <!-- for unpacking Spinnaker debs -->
-
-  <depend>roscpp</depend>
-  <depend>nodelet</depend>
-  <depend>sensor_msgs</depend>
-  <depend>wfov_camera_msgs</depend>
-  <depend>image_exposure_msgs</depend>
-  <depend>camera_info_manager</depend>
-  <depend>image_transport</depend>
-  <depend>dynamic_reconfigure</depend>
-  <depend>diagnostic_updater</depend>
-
-  <!-- Dependencies of libSpinnaker -->
-  <depend>libusb-1.0-dev</depend>
-
-  <exec_depend>image_proc</exec_depend>
-
-  <test_depend>roslaunch</test_depend>
-  <test_depend>roslint</test_depend>
-
-  <export>
-    <nodelet plugin="${prefix}/nodelet_plugins.xml" />
-  </export>
-</package>
+private:
+  void setImageControlFormats(const spinnaker_camera_driver::SpinnakerConfig& config);
+};
+}  // namespace spinnaker_camera_driver
+#endif  // SPINNAKER_CAMERA_DRIVER_GH3_H
