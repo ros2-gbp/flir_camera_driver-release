@@ -2,6 +2,11 @@
 Changelog for package spinnaker_camera_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.2.1 (2022-03-21)
+------------------
+* Removed check for build/usr/lib which would cause build to skip Spinnaker SDK install
+* Contributors: Luis Camero
+
 0.2.0 (2022-03-11)
 ------------------
 * Changes.
