@@ -1,0 +1,68 @@
+ros-noetic-flir-camera-description (0.2.3-1focal) focal; urgency=high
+
+  * 0.2.2
+  * Changes.
+  * 0.2.1
+  * Changes.
+  * 0.2.0
+  * Changes.
+  * Bump CMake version to avoid CMP0048 warning.
+  * Bumped flir_camera_description verison.
+  * Changes.
+  * Removed launch and rviz folders from CMakeLists
+  * URDF Description, Diagnostics, ISP Enable, and Launch Files (#81 <https://github.com/ros-drivers/flir_camera_driver/issues/81>)
+    * Changes required to use GigE Blackfly S version
+    * Added blackfly mesh
+    * Added URDF of blackflys and CHANGELOG
+    * Added new_line at end of flir_blackflys.urdf.xacro
+    * Added DiagnosticAnalyzers and more detailed diagnostic messages
+    * Added ISP enable and disable config and updated camera launch file to be more descriptive
+    * Switched order of configuration to put ISP enable next to color encoding
+    * Updated config to include enumeration for Off, Once, Continuous parameters, and udpated diagnostics.launch
+    * Handled issue where no namespace prevents diagnostics_agg from loading from analyzer paramaters
+  * Contributors: Tony Baltovski, luis-camero
+
+ -- Luis Camero <lcamero@clearpathrobotics.com>  Tue, 19 Apr 2022 04:00:00 -0000
+
+ros-noetic-flir-camera-description (0.2.2-1focal) focal; urgency=high
+
+
+
+ -- Luis Camero <lcamero@clearpathrobotics.com>  Mon, 28 Mar 2022 04:00:00 -0000
+
+ros-noetic-flir-camera-description (0.2.1-1focal) focal; urgency=high
+
+
+
+ -- Luis Camero <lcamero@clearpathrobotics.com>  Mon, 21 Mar 2022 04:00:00 -0000
+
+ros-noetic-flir-camera-description (0.2.0-1focal) focal; urgency=high
+
+  * Bump CMake version to avoid CMP0048 warning.
+  * Bumped flir_camera_description verison.
+  * Changes.
+  * Merge pull request #91 <https://github.com/ros-drivers/flir_camera_driver/issues/91> from luis-camero/noetic-devel
+    ROS Industrial CI
+  * Removed launch and rviz folders from CMakeLists
+  * URDF Description, Diagnostics, ISP Enable, and Launch Files (#81 <https://github.com/ros-drivers/flir_camera_driver/issues/81>)
+    * Changes required to use GigE Blackfly S version
+    * Added blackfly mesh
+    * Added URDF of blackflys and CHANGELOG
+    * Added new_line at end of flir_blackflys.urdf.xacro
+    * Added DiagnosticAnalyzers and more detailed diagnostic messages
+    * Added ISP enable and disable config and updated camera launch file to be more descriptive
+    * Switched order of configuration to put ISP enable next to color encoding
+    * Updated config to include enumeration for Off, Once, Continuous parameters, and udpated diagnostics.launch
+    * Handled issue where no namespace prevents diagnostics_agg from loading from analyzer paramaters
+  * Contributors: Tony Baltovski, luis-camero
+
+ -- Luis Camero <lcamero@clearpathrobotics.com>  Fri, 11 Mar 2022 05:00:00 -0000
+
+ros-noetic-flir-camera-description (0.1.0-1focal) focal; urgency=high
+
+  * Initial Release
+  * Contributors: Luis Camero
+
+ -- Luis Camero <lcamero@clearpathrobotics.com>  Wed, 10 Nov 2021 05:00:00 -0000
+
+
