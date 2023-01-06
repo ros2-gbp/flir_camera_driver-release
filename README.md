@@ -1,3 +1,29 @@
+## flir_camera_driver (noetic) - 0.2.4-1
+
+The packages in the `flir_camera_driver` repository were released into the `noetic` distro by running `/usr/bin/bloom-release -r noetic -t noetic flir_camera_driver` on `Fri, 06 Jan 2023 16:47:59 -0000`
+
+These packages were released:
+- `flir_camera_description`
+- `flir_camera_driver`
+- `spinnaker_camera_driver`
+
+Version of package(s) in repository `flir_camera_driver`:
+
+- upstream repository: https://github.com/ros-drivers/flir_camera_driver.git
+- release repository: https://github.com/ros-drivers-gbp/flir_camera_driver-release.git
+- rosdistro version: `0.2.3-1`
+- old version: `0.2.3-1`
+- new version: `0.2.4-1`
+
+Versions of tools used:
+
+- bloom version: `0.11.2`
+- catkin_pkg version: `0.5.2`
+- rosdep version: `0.22.1`
+- rosdistro version: `0.9.0`
+- vcstools version: `0.1.42`
+
+
 ## flir_camera_driver (noetic) - 0.2.3-1
 
 The packages in the `flir_camera_driver` repository were released into the `noetic` distro by running `/usr/bin/bloom-release -r noetic -t noetic flir_camera_driver` on `Tue, 19 Apr 2022 12:16:13 -0000`
