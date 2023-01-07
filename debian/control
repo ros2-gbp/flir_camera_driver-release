@@ -1,0 +1,12 @@
+Source: ros-noetic-flir-camera-driver
+Section: misc
+Priority: optional
+Maintainer: Michael Hosmar <mhosmar@clearpathrobotics.com>
+Build-Depends: debhelper (>= 9.0.0), ros-noetic-catkin
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-noetic-flir-camera-driver
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-noetic-flir-camera-description, ros-noetic-spinnaker-camera-driver
+Description: A set of drivers for Flir cameras based on the Spinnaker SDK.
