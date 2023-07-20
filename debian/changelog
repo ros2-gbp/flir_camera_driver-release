@@ -1,0 +1,13 @@
+ros-humble-flir-camera-description (2.0.0-1bullseye) bullseye; urgency=high
+
+  * [flir_camera_description] Changed unused depends to exec_depends.
+  * Merge pull request #113 <https://github.com/ros-drivers/flir_camera_driver/issues/113> from berndpfrommer/humble-devel-new
+    new driver for ROS2
+  * resize image and move to top
+  * update licensing comment
+  * modify the description package for ROS2, add documentation
+  * Contributors: Bernd Pfrommer, Tony Baltovski
+
+ -- Luis Camero <lcamero@clearpathrobotics.com>  Thu, 20 Jul 2023 04:00:00 -0000
+
+
