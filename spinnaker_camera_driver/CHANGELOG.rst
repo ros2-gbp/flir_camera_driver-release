@@ -2,6 +2,11 @@
 Changelog for package spinnaker_camera_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.0.2 (2023-07-25)
+------------------
+* [spinnaker_camera_driver] Added lsb-release as dep.
+* Contributors: Tony Baltovski
+
 2.0.1 (2023-07-24)
 ------------------
 * use cmake find_program to detect lsb_release
