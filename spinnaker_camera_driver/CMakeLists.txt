@@ -30,6 +30,9 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE RelWithDebInfo)
 endif()
 
+# find lsb-release for installing Spinnaker SDK.
+find_package(lsb-release REQUIRED)
+
 # the spinnaker SDK does not provide a cmake file
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 
