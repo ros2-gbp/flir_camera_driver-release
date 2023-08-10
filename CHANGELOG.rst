@@ -2,6 +2,11 @@
 Changelog for package spinnaker_camera_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.0.4 (2023-08-10)
+------------------
+* install spinnaker libraries in spinnaker_camera_driver dir
+* Contributors: Bernd Pfrommer
+
 2.0.3 (2023-08-01)
 ------------------
 * Hardcoding OS to jammy since it is the only one currently supported.
