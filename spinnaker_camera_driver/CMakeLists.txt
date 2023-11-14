@@ -148,6 +148,11 @@ install(DIRECTORY
   DESTINATION share/${PROJECT_NAME}/
 )
 
+install(PROGRAMS
+  scripts/linux_setup_flir
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 if(SPINNAKER_WAS_DOWNLOADED)
   set(SPINNAKER_BUILD_SUBDIR "opt/spinnaker/lib")
   set(SPINNAKER_BUILD_DIR "${CMAKE_CURRENT_BINARY_DIR}/${SPINNAKER_BUILD_SUBDIR}")
@@ -166,7 +171,7 @@ if(BUILD_TESTING)
   find_package(ament_cmake_clang_format REQUIRED)
   find_package(ament_cmake_xmllint REQUIRED)
 
-  ament_copyright(EXCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/cmake/TargetArch.cmake)
+  ament_copyright()
   ament_cppcheck(LANGUAGE c++)
   ament_cpplint(FILTERS "-build/include,-runtime/indentation_namespace")
   ament_flake8()
