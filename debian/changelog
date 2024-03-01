@@ -1,0 +1,8 @@
+ros-rolling-spinnaker-synchronized-camera-driver (2.0.11-1jammy) jammy; urgency=high
+
+  * first release as a ROS package on rolling
+  * Contributors: Bernd Pfrommer
+
+ -- Bernd Pfrommer <bernd.pfrommer@gmail.com>  Thu, 29 Feb 2024 05:00:00 -0000
+
+
