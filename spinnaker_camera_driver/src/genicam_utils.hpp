@@ -19,7 +19,6 @@
 #include <SpinGenApi/SpinnakerGenApi.h>
 #include <Spinnaker.h>
 
-#include <optional>
 #include <sstream>
 #include <string>
 
@@ -28,7 +27,7 @@ namespace spinnaker_camera_driver
 namespace genicam_utils
 {
 void get_nodemap_as_string(std::stringstream & ss, Spinnaker::CameraPtr cam);
-std::optional<Spinnaker::GenApi::CNodePtr> find_node(
+Spinnaker::GenApi::CNodePtr find_node(
   const std::string & path, Spinnaker::CameraPtr cam, bool debug);
 }  // namespace genicam_utils
 }  // namespace spinnaker_camera_driver

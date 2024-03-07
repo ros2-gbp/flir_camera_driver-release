@@ -51,8 +51,7 @@ static bool common_checks(
   const GenApi::CNodePtr & np, const std::string & nodeName, std::string * msg)
 {
   if (!np.IsValid()) {
-    // nullptr means node was found, but is greyed out
-    *msg = "node " + nodeName + " exists but is not accessible!";
+    *msg = "node " + nodeName + " does not exist!";
     return (false);
   }
   if (!is_available(np)) {
@@ -60,7 +59,7 @@ static bool common_checks(
     return (false);
   }
   if (!is_writable(np)) {
-    *msg = "node " + nodeName + " not writable!";
+    *msg = "node " + nodeName + " not available!";
     return (false);
   }
   return (true);
@@ -144,15 +143,12 @@ std::string SpinnakerWrapperImpl::setEnum(
   const std::string & nodeName, const std::string & val, std::string * retVal)
 {
   *retVal = "UNKNOWN";
-  const auto np = genicam_utils::find_node(nodeName, camera_, debug_);
-  if (!np) {
-    return ("node " + nodeName + " not found!");
-  }
+  GenApi::CNodePtr np = genicam_utils::find_node(nodeName, camera_, debug_);
   std::string msg;
-  if (!common_checks(*np, nodeName, &msg)) {
+  if (!common_checks(np, nodeName, &msg)) {
     return (msg);
   }
-  GenApi::CEnumerationPtr p = static_cast<GenApi::CEnumerationPtr>(*np);
+  GenApi::CEnumerationPtr p = static_cast<GenApi::CEnumerationPtr>(np);
   if (!is_writable(p)) {
     return ("node " + nodeName + " not enum???");
   }
@@ -210,17 +206,14 @@ static std::string set_parameter(
   const std::string & nodeName, T2 val, T2 * retVal, const Spinnaker::CameraPtr & cam, bool debug)
 {
   *retVal = set_invalid<T2>();
-  const auto np = genicam_utils::find_node(nodeName, cam, debug);
-  if (!np) {
-    return ("node " + nodeName + " not found!");
-  }
+  GenApi::CNodePtr np = genicam_utils::find_node(nodeName, cam, debug);
   std::string msg;
-  if (!common_checks(*np, nodeName, &msg)) {
+  if (!common_checks(np, nodeName, &msg)) {
     return (msg);
   }
-  T1 p = static_cast<T1>(*np);
+  T1 p = static_cast<T1>(np);
   p->SetValue(val);
-  if (!is_readable(*np)) {
+  if (!is_readable(np)) {
     return ("node " + nodeName + " current entry not readable!");
   }
   *retVal = p->GetValue();
@@ -298,21 +291,13 @@ void SpinnakerWrapperImpl::OnImageEvent(Spinnaker::ImagePtr imgPtr)
     std::cout << "Image incomplete: "
               << Spinnaker::Image::GetImageStatusDescription(imgPtr->GetImageStatus()) << std::endl;
   } else {
-    float expTime = 0;
-    float gain = 0;
-    int64_t stamp = 0;
-
-    try {
-      const Spinnaker::ChunkData & chunk = imgPtr->GetChunkData();
-      expTime = chunk.GetExposureTime();
-      gain = chunk.GetGain();
-      stamp = chunk.GetTimestamp();
-    } catch (const Spinnaker::Exception & e) {
-      // Without chunk data enabled there is no way to get e.g. the time stamps. Bad!
-      // Spinnaker: Image does not contain chunk data. [-1001]
-    }
+    const Spinnaker::ChunkData & chunk = imgPtr->GetChunkData();
+    const float expTime = chunk.GetExposureTime();
+    const float gain = chunk.GetGain();
+    const int64_t stamp = chunk.GetTimestamp();
     const uint32_t maxExpTime =
       static_cast<uint32_t>(is_readable(exposureTimeNode_) ? exposureTimeNode_->GetMax() : 0);
+
 #if 0
     std::cout << "got image: " << imgPtr->GetWidth() << "x"
               << imgPtr->GetHeight() << " stride: " << imgPtr->GetStride()

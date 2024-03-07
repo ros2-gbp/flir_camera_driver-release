@@ -15,10 +15,7 @@
 # limitations under the License.
 
 cmake_minimum_required(VERSION 3.5)
-project(spinnaker_camera_driver VERSION 2.0.0)
-
-include(CMakePackageConfigHelpers)
-include(GNUInstallDirs)
+project(spinnaker_camera_driver)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -95,7 +92,6 @@ find_package(yaml-cpp REQUIRED)
 
 add_library(camera_driver SHARED
   src/camera_driver.cpp
-  src/camera.cpp
   src/spinnaker_wrapper.cpp
   src/spinnaker_wrapper_impl.cpp
   src/image.cpp
@@ -103,18 +99,8 @@ add_library(camera_driver SHARED
   src/genicam_utils.cpp
 )
 
-# ament_target_dependencies(camera_driver PUBLIC ${ROS_DEPENDENCIES})
-target_link_libraries(camera_driver
-  PUBLIC
-  rclcpp::rclcpp
-  rclcpp_components::component
-  camera_info_manager::camera_info_manager
-  image_transport::image_transport
-  ${flir_camera_msgs_TARGETS}
-  ${sensor_msgs_TARGETS}
-  ${std_msgs_TARGETS}
-  yaml-cpp
-  Spinnaker::Spinnaker)
+ament_target_dependencies(camera_driver PUBLIC ${ROS_DEPENDENCIES})
+target_link_libraries(camera_driver PUBLIC Spinnaker::Spinnaker PRIVATE yaml-cpp)
 
 target_include_directories(camera_driver
   PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -137,13 +123,6 @@ target_include_directories(camera_driver_node
 
 target_include_directories(camera_driver PRIVATE include)
 
-if(SPINNAKER_WAS_DOWNLOADED)
-  set(SPINNAKER_BUILD_SUBDIR "opt/spinnaker/lib")
-  set(SPINNAKER_BUILD_DIR "${CMAKE_CURRENT_BINARY_DIR}/${SPINNAKER_BUILD_SUBDIR}")
-  message(STATUS "installing spinnaker libraries from ${SPINNAKER_BUILD_DIR}")
-  install(DIRECTORY  "${SPINNAKER_BUILD_DIR}" DESTINATION ".")
-endif()
-
 # the node must go into the project specific lib directory or else
 # the launch file will not find it
 
@@ -156,34 +135,8 @@ install(TARGETS
 
 install(TARGETS
   camera_driver
-  EXPORT ${PROJECT_NAME}Targets
-  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-  INCLUDES DESTINATION include
+  DESTINATION lib
 )
-
-# generate the ConfigVersion.cmake file that will be included by Config.cmake
-write_basic_package_version_file(
-  ${PROJECT_NAME}ConfigVersion.cmake
-  VERSION ${CMAKE_PROJECT_VERSION}
-  COMPATIBILITY AnyNewerVersion)
-
-# generate the *Config.cmake file
-configure_file(cmake/${PROJECT_NAME}Config.cmake.in ${PROJECT_NAME}Config.cmake @ONLY)
-
-# generate Targets.cmake file from exports learned during the installation
-install(EXPORT ${PROJECT_NAME}Targets
-  FILE ${PROJECT_NAME}Targets.cmake
-  NAMESPACE ${PROJECT_NAME}::
-  DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
-
-# install the generated version and config files
-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
-              "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake"
-        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
-
-
-install(DIRECTORY include/
-  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 install(DIRECTORY
   config
@@ -200,6 +153,12 @@ install(PROGRAMS
   DESTINATION lib/${PROJECT_NAME}
 )
 
+if(SPINNAKER_WAS_DOWNLOADED)
+  set(SPINNAKER_BUILD_SUBDIR "opt/spinnaker/lib")
+  set(SPINNAKER_BUILD_DIR "${CMAKE_CURRENT_BINARY_DIR}/${SPINNAKER_BUILD_SUBDIR}")
+  message(STATUS "installing spinnaker libraries from ${SPINNAKER_BUILD_DIR}")
+  install(DIRECTORY  "${SPINNAKER_BUILD_DIR}" DESTINATION ${CMAKE_INSTALL_PREFIX})
+endif()
 
 if(BUILD_TESTING)
   find_package(ament_cmake REQUIRED)
