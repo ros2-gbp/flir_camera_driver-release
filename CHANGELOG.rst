@@ -2,6 +2,24 @@
 Changelog for package spinnaker_camera_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.1.13 (2024-03-13)
+-------------------
+* added blackfly GigE configuration file
+* track incomplete frames
+* fixed licensing documentation
+* provision camera driver for exposure control
+* fixed bugs discovered when running on GigE cams
+* avoid searching ROS path for library
+* Contributors: Bernd Pfrommer
+
+2.1.11 (2024-02-23)
+-------------------
+* Added connect_while_subscribed feature
+* Added binning parameter
+* Export library and refactor for synchronized driver support
+* fixed stereo launch file serial number bug
+* Contributors: Bernd Pfrommer, Luis Camero, buckleytoby
+
 2.0.8 (2023-11-14)
 ------------------
 * Added linux_setup_flir script instructions to Readme
