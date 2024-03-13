@@ -2,10 +2,7 @@
 Changelog for package spinnaker_synchronized_camera_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2.2.13 (2024-03-13)
--------------------
-
-2.2.12 (2024-03-07)
+2.1.13 (2024-03-13)
 -------------------
 * track incomplete frames
 * fixed licensing documentation
@@ -13,7 +10,7 @@ Changelog for package spinnaker_synchronized_camera_driver
 * fixed bugs discovered when running on GigE cams
 * Contributors: Bernd Pfrommer
 
-2.2.11 (2024-02-23)
+2.1.11 (2024-02-23)
 -------------------
-* First release as ROS package
+* First release as a ROS package
 * Contributors: Bernd Pfrommer
