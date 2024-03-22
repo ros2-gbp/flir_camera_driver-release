@@ -2,18 +2,14 @@
 Changelog for package spinnaker_camera_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2.2.14 (2024-03-17)
+2.1.14 (2024-03-22)
 -------------------
-* make Spinnaker lib private to fix sync build problems
+* make spinnaker dependency private for sync driver build
 * Contributors: Bernd Pfrommer
 
-2.2.13 (2024-03-13)
+2.1.13 (2024-03-13)
 -------------------
 * added blackfly GigE configuration file
-* Contributors: Bernd Pfrommer
-
-2.2.12 (2024-03-07)
--------------------
 * track incomplete frames
 * fixed licensing documentation
 * provision camera driver for exposure control
@@ -21,18 +17,13 @@ Changelog for package spinnaker_camera_driver
 * avoid searching ROS path for library
 * Contributors: Bernd Pfrommer
 
-2.2.11 (2024-02-23)
+2.1.11 (2024-02-23)
 -------------------
-* added connect_while_subscribed feature
+* Added connect_while_subscribed feature
 * Added binning parameter
-* install spinnaker library in same place as driver library
-* remove junk directories from search path
-* prepare single-camera driver for use with sync'ed driver
-* fixed stereo launch file serial nb bug
+* Export library and refactor for synchronized driver support
+* fixed stereo launch file serial number bug
 * Contributors: Bernd Pfrommer, Luis Camero, buckleytoby
-
-2.2.10 (2023-12-02)
--------------------
 
 2.0.8 (2023-11-14)
 ------------------
