@@ -2,20 +2,14 @@
 Changelog for package spinnaker_synchronized_camera_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2.1.14 (2024-03-22)
+2.0.15 (2024-03-28)
 -------------------
-* remove direct dependency on spinnaker to fix broken build on ros2 farm
-* Contributors: Bernd Pfrommer
-
-2.1.13 (2024-03-13)
--------------------
+* fixes to compile on focal/galactic
 * track incomplete frames
 * fixed licensing documentation
-* implement individual exposure controller
-* fixed bugs discovered when running on GigE cams
 * Contributors: Bernd Pfrommer
 
-2.1.11 (2024-02-23)
+2.0.11 (2024-02-29)
 -------------------
-* First release as a ROS package
+* first release as a ROS package on rolling
 * Contributors: Bernd Pfrommer
