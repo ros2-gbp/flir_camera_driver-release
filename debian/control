@@ -1,0 +1,12 @@
+Source: ros-jazzy-spinnaker-camera-driver
+Section: misc
+Priority: optional
+Maintainer: Bernd Pfrommer <bernd.pfrommer@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ament-cmake, ament-cmake-clang-format <!nocheck>, ament-cmake-copyright <!nocheck>, ament-cmake-cppcheck <!nocheck>, ament-cmake-cpplint <!nocheck>, ament-cmake-flake8 <!nocheck>, ament-cmake-lint-cmake <!nocheck>, ament-cmake-pep257 <!nocheck>, ament-cmake-ros, ament-cmake-uncrustify <!nocheck>, ament-cmake-xmllint <!nocheck>, ament-lint <!nocheck>, curl, dpkg, ffmpeg, image-transport-tools, libavcodec-dev, libavformat-dev, libavutil-dev, libcamera-info-manager-dev, libcurl4-openssl-dev, libimage-transport-dev, libsensor-msgs-dev, libstd-msgs-dev, libswscale-dev, libusb-1.0-0-dev, libyaml-cpp-dev, python3-distro, python3-sensor-msgs, python3-std-msgs, ros-jazzy-flir-camera-msgs, ros-jazzy-rclcpp, ros-jazzy-rclcpp-components, ros-sensor-msgs, ros-std-msgs, ros-jazzy-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-jazzy-spinnaker-camera-driver
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ffmpeg, image-transport-tools, libavcodec-dev, libavformat-dev, libavutil-dev, libcamera-info-manager-dev, libimage-transport-dev, libsensor-msgs-dev, libstd-msgs-dev, libswscale-dev, libusb-1.0-0-dev, libyaml-cpp-dev, python3-sensor-msgs, python3-std-msgs, ros-jazzy-flir-camera-msgs, ros-jazzy-rclcpp, ros-jazzy-rclcpp-components, ros-sensor-msgs, ros-std-msgs, ros-jazzy-ros-workspace
+Description: ROS2 driver for flir spinnaker sdk
