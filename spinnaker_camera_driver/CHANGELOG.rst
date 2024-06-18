@@ -2,6 +2,13 @@
 Changelog for package spinnaker_camera_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.0.18 (2024-06-18)
+-------------------
+* point to new spinnaker sdk for noble
+* renamed stereo_synced file and added doc
+* added user set control examples for blackfly/blackfly_s
+* Contributors: Bernd Pfrommer
+
 2.0.17 (2024-05-18)
 -------------------
 * fix broken composable node by installing in correct location
