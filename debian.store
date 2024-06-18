@@ -1,1 +1,1 @@
-{"base": "6f71064", "parent": "debian/rolling/spinnaker_camera_driver", "previous": "565bdbf", "trim": "", "trimbase": ""}
+{"base": "0dca6bb", "parent": "debian/rolling/spinnaker_camera_driver", "previous": "66c40ab", "trim": "", "trimbase": ""}
