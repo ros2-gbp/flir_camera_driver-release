@@ -2,6 +2,9 @@
 Changelog for package spinnaker_synchronized_camera_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.0.19 (2024-06-18)
+-------------------
+
 2.0.18 (2024-06-18)
 -------------------
 * added primary_secondary launch file
