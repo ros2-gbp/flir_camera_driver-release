@@ -2,6 +2,11 @@
 Changelog for package spinnaker_camera_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.0.20 (2024-06-20)
+-------------------
+* updated docs for jazzy, adjust download script
+* Contributors: Bernd Pfrommer
+
 2.0.19 (2024-06-18)
 -------------------
 * remove unnecessary debs from package
