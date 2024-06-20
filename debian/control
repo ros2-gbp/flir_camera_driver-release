@@ -1,0 +1,12 @@
+Source: ros-jazzy-spinnaker-camera-driver
+Section: misc
+Priority: optional
+Maintainer: Bernd Pfrommer <bernd.pfrommer@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), curl, dpkg, ffmpeg, libavcodec-dev, libavformat-dev, libavutil-dev, libcurl4-openssl-dev, libswscale-dev, libusb-1.0-0-dev, libyaml-cpp-dev, python3-distro, ros-jazzy-ament-cmake, ros-jazzy-ament-cmake-clang-format <!nocheck>, ros-jazzy-ament-cmake-ros, ros-jazzy-ament-lint-auto <!nocheck>, ros-jazzy-ament-lint-common <!nocheck>, ros-jazzy-camera-info-manager, ros-jazzy-flir-camera-msgs, ros-jazzy-image-transport, ros-jazzy-rclcpp, ros-jazzy-rclcpp-components, ros-jazzy-sensor-msgs, ros-jazzy-std-msgs, ros-jazzy-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-jazzy-spinnaker-camera-driver
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ffmpeg, libavcodec-dev, libavformat-dev, libavutil-dev, libswscale-dev, libusb-1.0-0-dev, libyaml-cpp-dev, ros-jazzy-camera-info-manager, ros-jazzy-flir-camera-msgs, ros-jazzy-image-transport, ros-jazzy-rclcpp, ros-jazzy-rclcpp-components, ros-jazzy-sensor-msgs, ros-jazzy-std-msgs, ros-jazzy-ros-workspace
+Description: ROS2 driver for flir spinnaker sdk
