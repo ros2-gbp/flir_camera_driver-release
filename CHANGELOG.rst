@@ -2,26 +2,8 @@
 Changelog for package flir_camera_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2.0.20 (2024-06-20)
--------------------
-
-2.0.19 (2024-06-18)
--------------------
-
-2.0.18 (2024-06-18)
--------------------
-
-2.0.17 (2024-05-18)
--------------------
-
-2.0.16 (2024-04-20)
--------------------
-
-2.0.15 (2024-03-28)
--------------------
-
-2.0.11 (2024-02-29)
--------------------
+3.0.0 (2024-11-21)
+------------------
 * removed changelogs
 * Contributors: Bernd Pfrommer
 
@@ -68,8 +50,6 @@ Changelog for package flir_camera_msgs
 2.0.0 (2023-07-20)
 ------------------
 * Changes.
-* Merge pull request `#113 <https://github.com/ros-drivers/flir_camera_driver/issues/113>`_ from berndpfrommer/humble-devel-new
-  new driver for ROS2
 * more elaborate README
 * added flir_camera_msgs package
 * Contributors: Bernd Pfrommer, Tony Baltovski
