@@ -2,52 +2,53 @@
 Changelog for package spinnaker_camera_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2.0.20 (2024-06-20)
--------------------
+3.0.0 (2024-11-21)
+------------------
+* Remove "NOT TESTED" from tested Chameleon params
+  - Tested with `CM3-U3-50S5C` camera model, `trigger_source: "Line0"`
+  and `trigger_selector: "FrameStart"`
+* Re-order Chameleon config params to match Blackfly
+  - Match Chameleon param order with Blackfly config params
+* Add Reverse and VideoMode Chameleon config params
+  - ReverseX/Y params flip the image as expected. This changes the pixel
+  format accordingly (e.g. BayerRG8 -> BayerBG8 for an X and Y flip)
+  - Video Mode options can affect effective resolution, frame rate and
+  brightness depending on camera model, please check the documentation.
+* support brightness computation for all bayer image types
+* better documentation for setting GENTL variable
+* only access camera with correct serial
+* better diagnostics on incomplete images
+* work around compile error on Iron
+* fix multiple network interface refreshCameraList
+* add support for transport layer and stream params
+* added option to launch blackfly type
+* mention SPINNAKER_GENTL64_CTI
 * updated docs for jazzy, adjust download script
-* Contributors: Bernd Pfrommer
-
-2.0.19 (2024-06-18)
--------------------
 * remove unnecessary debs from package
-* Contributors: Bernd Pfrommer
-
-2.0.18 (2024-06-18)
--------------------
 * point to new spinnaker sdk for noble
 * renamed stereo_synced file and added doc
 * added user set control examples for blackfly/blackfly_s
-* Contributors: Bernd Pfrommer
-
-2.0.17 (2024-05-18)
--------------------
 * fix broken composable node by installing in correct location
-* Add FLIR-AX5 Camera
-* Contributors: Bernd Pfrommer, anonymousarmadillo100
-
-2.0.16 (2024-04-20)
--------------------
+* Add FLIR-AX5 Camera (`#176 <https://github.com/ros-drivers/flir_camera_driver/issues/176>`_)
+  * added config file for flir_ax5
+  ---------
+  Co-authored-by: Bernd Pfrommer <bernd.pfrommer@gmail.com>
 * add option to disable external control (default!)
 * updated docs for sync driver, switch to RST
 * widened the ExposureController interface
 * fix build errors on rolling/noble
 * added blacklevel and whitebalance support for blackfly
 * use proper name for camerainfo when using sync driver
-* Contributors: Bernd Pfrommer
-
-2.0.15 (2024-03-28)
--------------------
 * fixes to compile on focal/galactic
 * Oryx parameter file
-* support for command nodes
-* remove more spinnaker imports, make spinnaker private
+* lint
+* allow for unreadable command nodes
+* Initial support for command nodes
+* remove more spinnaker imports
+* make Spinnaker private
 * added blackfly GigE configuration file
 * track incomplete frames
 * fixed licensing documentation
-* Contributors: Bernd Pfrommer, Sir-Photch
-
-2.0.11 (2024-02-29)
--------------------
 * provision camera driver for exposure control
 * fixed bugs discovered when running on GigE cams
 * avoid searching ROS path for library
@@ -59,7 +60,7 @@ Changelog for package spinnaker_camera_driver
 * prepare single-camera driver for use with sync'ed driver
 * fixed stereo launch file serial nb bug
 * removed changelogs
-* Contributors: Bernd Pfrommer, Luis Camero, buckleytoby
+* Contributors: Alejandro Bordallo, Bernd Pfrommer, Luis Camero, Sir-Photch, anonymousarmadillo100, buckleytoby, iagogomes
 
 2.0.8 (2023-11-14)
 ------------------
@@ -77,8 +78,6 @@ Changelog for package spinnaker_camera_driver
 2.0.7 (2023-10-03)
 ------------------
 * Changes.
-* Merge pull request `#132 <https://github.com/ros-drivers/flir_camera_driver/issues/132>`_ from hilary-luo/humble-devel
-  Added udev rule
 * Restricted the device permissions
 * Added Teledyne to udev as requested
 * Added udev rule
@@ -110,17 +109,12 @@ Changelog for package spinnaker_camera_driver
 2.0.3 (2023-08-01)
 ------------------
 * Changes.
-* Merge pull request `#119 <https://github.com/ros-drivers/flir_camera_driver/issues/119>`_ from ros-drivers/fix/tmp-hardcode-os
-  Hardcoding OS to jammy since it is the only one currently supported.
 * Hardcoding OS to jammy since it is the only one currently supported.
 * Contributors: Tony Baltovski
 
 2.0.2 (2023-07-28)
 ------------------
 * Changes.
-* Merge pull request `#117 <https://github.com/ros-drivers/flir_camera_driver/issues/117>`_ from ros-drivers/humble-devel-fix-lsb-release
-  add dependencies for spinnaker download.
-  @tonybaltovski can you release this fix? I'd like to see if it works. Thanks!
 * replace lsb-release with python3-distro
 * add dependencies for spinnaker download
 * Contributors: Bernd Pfrommer, Tony Baltovski
@@ -128,16 +122,12 @@ Changelog for package spinnaker_camera_driver
 2.0.1 (2023-07-24)
 ------------------
 * Changes.
-* Merge pull request `#116 <https://github.com/ros-drivers/flir_camera_driver/issues/116>`_ from ros-drivers/humble-devel-fix-lsb-release
-  use cmake find_program to detect lsb_release
 * use cmake find_program to detect lsb_release
 * Contributors: Bernd Pfrommer, Tony Baltovski
 
 2.0.0 (2023-07-20)
 ------------------
 * Changes.
-* Merge pull request `#113 <https://github.com/ros-drivers/flir_camera_driver/issues/113>`_ from berndpfrommer/humble-devel-new
-  new driver for ROS2
 * added spinnaker_camera_driver package
 * deleted spinnaker ros2 driver, to be replaced by new version
 * Contributors: Bernd Pfrommer, Tony Baltovski
@@ -157,17 +147,12 @@ Changelog for package spinnaker_camera_driver
 0.2.3 (2022-04-19)
 ------------------
 * Changes.
-* Merge pull request `#96 <https://github.com/ros-drivers/flir_camera_driver/issues/96>`_ from luis-camero/noetic-devel
-  Only copy necessary libraries
-* Merge branch 'ros-drivers:noetic-devel' into noetic-devel
 * Only install necessary libraries
-* Contributors: Luis Camero, Tony Baltovski, luis-camero
+* Contributors: Luis Camero, Tony Baltovski
 
 0.2.2 (2022-03-28)
 ------------------
 * Changes.
-* Merge pull request `#94 <https://github.com/ros-drivers/flir_camera_driver/issues/94>`_ from luis-camero/noetic-devel
-  Copy Spinnaker Libraries to build/usr/lib
 * Added new-line at EOF
 * Spinnaker libraries are now all copied to usr/lib
 * Reordered definitions to prevent compiler warnings
@@ -176,8 +161,6 @@ Changelog for package spinnaker_camera_driver
 0.2.1 (2022-03-21)
 ------------------
 * Changes.
-* Merge pull request `#93 <https://github.com/ros-drivers/flir_camera_driver/issues/93>`_ from luis-camero/noetic-devel
-  Removed check for build/usr/lib
 * Removed check for build/usr/lib which would cause build to skip Spinnaker SDK install
 * Contributors: Luis Camero, Tony Baltovski
 
@@ -185,13 +168,9 @@ Changelog for package spinnaker_camera_driver
 ------------------
 * Changes.
 * Changes.
-* Merge pull request `#91 <https://github.com/ros-drivers/flir_camera_driver/issues/91>`_ from luis-camero/noetic-devel
-  ROS Industrial CI
 * Fixed all issues reported by roslint
 * Updated file paths to /opt/spinnaker instead of /usr/spinnaker
 * Updated download_spinnaker look-up table
-* Merge pull request `#88 <https://github.com/ros-drivers/flir_camera_driver/issues/88>`_ from luis-camero/noetic-devel
-  Add readable check to SDK parameters
 * Add readable check to SDK parameters
 * URDF Description, Diagnostics, ISP Enable, and Launch Files (`#81 <https://github.com/ros-drivers/flir_camera_driver/issues/81>`_)
   * Changes required to use GigE Blackfly S version
@@ -236,8 +215,6 @@ Changelog for package spinnaker_camera_driver
   * [spinnaker_camera_driver] Updated diagnostics launchfile
 * Removed opencv as depend. (`#46 <https://github.com/ros-drivers/flir_camera_driver/issues/46>`_)
 * Changed the download script to check for destination folder and moved unpack directory. (`#44 <https://github.com/ros-drivers/flir_camera_driver/issues/44>`_)
-* Merge pull request `#42 <https://github.com/ros-drivers/flir_camera_driver/issues/42>`_ from civerachb-cpr/rpsw-185
-  Fix Flycap & Spinnaker endpoints
 * Create the directory if it doesn't exist
 * Remove an unnecessary deb
 * Spinnaker driver now successfully downloads & builds
