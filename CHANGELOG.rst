@@ -2,26 +2,8 @@
 Changelog for package flir_camera_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2.0.20 (2024-06-20)
--------------------
-
-2.0.19 (2024-06-18)
--------------------
-
-2.0.18 (2024-06-18)
--------------------
-
-2.0.17 (2024-05-18)
--------------------
-
-2.0.16 (2024-04-20)
--------------------
-
-2.0.15 (2024-03-28)
--------------------
-
-2.0.11 (2024-02-29)
--------------------
+3.0.0 (2024-11-21)
+------------------
 * removed changelogs
 * Contributors: Bernd Pfrommer
 
@@ -70,8 +52,6 @@ Changelog for package flir_camera_description
 ------------------
 * Changes.
 * [flir_camera_description] Changed unused depends to exec_depends.
-* Merge pull request `#113 <https://github.com/ros-drivers/flir_camera_driver/issues/113>`_ from berndpfrommer/humble-devel-new
-  new driver for ROS2
 * resize image and move to top
 * update licensing comment
 * modify the description package for ROS2, add documentation
@@ -90,8 +70,7 @@ Changelog for package flir_camera_description
 0.2.3 (2022-04-19)
 ------------------
 * Changes.
-* Merge branch 'ros-drivers:noetic-devel' into noetic-devel
-* Contributors: Tony Baltovski, luis-camero
+* Contributors: Tony Baltovski
 
 0.2.2 (2022-03-28)
 ------------------
@@ -109,8 +88,6 @@ Changelog for package flir_camera_description
 * Bump CMake version to avoid CMP0048 warning.
 * Bumped flir_camera_description verison.
 * Changes.
-* Merge pull request `#91 <https://github.com/ros-drivers/flir_camera_driver/issues/91>`_ from luis-camero/noetic-devel
-  ROS Industrial CI
 * Removed launch and rviz folders from CMakeLists
 * URDF Description, Diagnostics, ISP Enable, and Launch Files (`#81 <https://github.com/ros-drivers/flir_camera_driver/issues/81>`_)
   * Changes required to use GigE Blackfly S version
