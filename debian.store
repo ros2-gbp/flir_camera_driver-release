@@ -1,1 +1,1 @@
-{"base": "92e9dfe", "parent": "debian/rolling/flir_camera_description", "previous": "f138115", "trim": "", "trimbase": ""}
+{"base": "36e8a8da0480", "parent": "debian/kilted/flir_camera_description", "previous": "92a95cc6a582", "trim": "", "trimbase": ""}
