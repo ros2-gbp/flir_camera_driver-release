@@ -1,0 +1,12 @@
+Source: ros-jazzy-spinnaker-synchronized-camera-driver
+Section: misc
+Priority: optional
+Maintainer: Bernd Pfrommer <bernd.pfrommer@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ros-jazzy-ament-cmake, ros-jazzy-ament-cmake-black <!nocheck>, ros-jazzy-ament-cmake-clang-format <!nocheck>, ros-jazzy-ament-cmake-ros, ros-jazzy-ament-lint-auto <!nocheck>, ros-jazzy-ament-lint-common <!nocheck>, ros-jazzy-rclcpp, ros-jazzy-rclcpp-components, ros-jazzy-spinnaker-camera-driver, ros-jazzy-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-jazzy-spinnaker-synchronized-camera-driver
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-jazzy-rclcpp, ros-jazzy-rclcpp-components, ros-jazzy-spinnaker-camera-driver, ros-jazzy-ros-workspace
+Description: ROS2 driver for synchronized flir cameras using the Spinnaker SDK
