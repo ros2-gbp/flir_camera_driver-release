@@ -1,0 +1,12 @@
+Source: ros-kilted-flir-camera-description
+Section: misc
+Priority: optional
+Maintainer: Luis Camero <lcamero@clearpathrobotics.com>
+Build-Depends: debhelper (>= 9.0.0), ros-kilted-ament-cmake, ros-kilted-ament-lint-auto <!nocheck>, ros-kilted-ament-lint-common <!nocheck>, ros-kilted-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-kilted-flir-camera-description
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kilted-robot-state-publisher, ros-kilted-urdf, ros-kilted-xacro, ros-kilted-ros-workspace
+Description: FLIR camera Description package
