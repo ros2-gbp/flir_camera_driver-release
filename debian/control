@@ -1,0 +1,12 @@
+Source: ros-kilted-spinnaker-synchronized-camera-driver
+Section: misc
+Priority: optional
+Maintainer: Bernd Pfrommer <bernd.pfrommer@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ros-kilted-ament-cmake, ros-kilted-ament-cmake-black <!nocheck>, ros-kilted-ament-cmake-clang-format <!nocheck>, ros-kilted-ament-cmake-ros, ros-kilted-ament-lint-auto <!nocheck>, ros-kilted-ament-lint-common <!nocheck>, ros-kilted-rclcpp, ros-kilted-rclcpp-components, ros-kilted-spinnaker-camera-driver, ros-kilted-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-kilted-spinnaker-synchronized-camera-driver
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kilted-rclcpp, ros-kilted-rclcpp-components, ros-kilted-spinnaker-camera-driver, ros-kilted-ros-workspace
+Description: ROS2 driver for synchronized flir cameras using the Spinnaker SDK
