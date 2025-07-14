@@ -1,3 +1,30 @@
+## flir_camera_driver (kilted) - 3.0.3-1
+
+The packages in the `flir_camera_driver` repository were released into the `kilted` distro by running `/usr/bin/bloom-release --ros-distro kilted flir_camera_driver` on `Mon, 14 Jul 2025 20:12:55 -0000`
+
+These packages were released:
+- `flir_camera_description`
+- `flir_camera_msgs`
+- `spinnaker_camera_driver`
+- `spinnaker_synchronized_camera_driver`
+
+Version of package(s) in repository `flir_camera_driver`:
+
+- upstream repository: https://github.com/ros-drivers/flir_camera_driver.git
+- release repository: https://github.com/ros2-gbp/flir_camera_driver-release.git
+- rosdistro version: `3.0.2-1`
+- old version: `3.0.2-1`
+- new version: `3.0.3-1`
+
+Versions of tools used:
+
+- bloom version: `0.13.0`
+- catkin_pkg version: `1.0.0`
+- rosdep version: `0.26.0`
+- rosdistro version: `1.0.1`
+- vcstools version: `0.1.42`
+
+
 ## flir_camera_driver (jazzy) - 3.0.3-1
 
 The packages in the `flir_camera_driver` repository were released into the `jazzy` distro by running `/usr/bin/bloom-release --ros-distro jazzy flir_camera_driver` on `Mon, 14 Jul 2025 20:08:26 -0000`
